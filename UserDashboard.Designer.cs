@@ -74,9 +74,10 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.Location = new System.Drawing.Point(119, 13);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(668, 424);
+            this.panel1.Size = new System.Drawing.Size(800, 450);
             this.panel1.TabIndex = 6;
             // 
             // UserDashboard
@@ -89,7 +90,6 @@
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Name = "UserDashboard";
-            this.Padding = new System.Windows.Forms.Padding(10);
             this.Size = new System.Drawing.Size(800, 450);
             this.Load += new System.EventHandler(this.UserDashboard_Load);
             this.ResumeLayout(false);

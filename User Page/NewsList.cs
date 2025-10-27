@@ -1,13 +1,6 @@
 ﻿using News_App.Component;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Net.Mime;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace News_App
@@ -29,11 +22,12 @@ namespace News_App
 
                 foreach (var content in contents)
                 {
-                    NewsCard card = new NewsCard();
-
-                    card.Title = content.Title;
-                    card.Author = content.Account.Username;
-                    card.PublishTime = content.CreatedAt.ToString();
+                    NewsCard card = new NewsCard
+                    {
+                        Title = content.Title,
+                        Author = content.Account.Username,
+                        PublishTime = content.CreatedAt.ToString()
+                    };
 
                     flowLayoutPanel1.Controls.Add(card);
                     card.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
@@ -43,7 +37,16 @@ namespace News_App
 
         private void NewsList_Load(object sender, EventArgs e)
         {
-            LoadPage();
+            NewsContent news = new NewsContent();
+            flowLayoutPanel1.Controls.Add(news);
+        }
+
+        private void FlowLayoutPanel1_Layout(object sender, LayoutEventArgs e)
+        {
+            foreach (Control ctrl in flowLayoutPanel1.Controls)
+            {
+                ctrl.Width = flowLayoutPanel1.ClientSize.Width - 10;
+            }
         }
     }
 }

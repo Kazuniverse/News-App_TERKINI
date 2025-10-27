@@ -61,6 +61,12 @@
     <Compile Include="Account.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Admin Page\AdminDashboard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Admin Page\AdminDashboard.Designer.cs">
+      <DependentUpon>AdminDashboard.cs</DependentUpon>
+    </Compile>
     <Compile Include="Component\NewsCard.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -85,10 +91,22 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Model1.edmx</DependentUpon>
     </Compile>
-    <Compile Include="User Page\AddNews.cs">
+    <Compile Include="NewsContent.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="User Page\AddNews.Designer.cs">
+    <Compile Include="NewsContent.Designer.cs">
+      <DependentUpon>NewsContent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TambahBerita.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="TambahBerita.Designer.cs">
+      <DependentUpon>TambahBerita.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Component\AddNews.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Component\AddNews.Designer.cs">
       <DependentUpon>AddNews.cs</DependentUpon>
     </Compile>
     <Compile Include="Form1.cs">
@@ -111,14 +129,11 @@
     <Compile Include="UserDashboard.Designer.cs">
       <DependentUpon>UserDashboard.cs</DependentUpon>
     </Compile>
-    <Compile Include="User Page\YourNews.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="User Page\YourNews.Designer.cs">
-      <DependentUpon>YourNews.cs</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="Component\NewsCard.resx">
       <DependentUpon>NewsCard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewsContent.resx">
+      <DependentUpon>NewsContent.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -129,14 +144,14 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="User Page\AddNews.resx">
+    <EmbeddedResource Include="TambahBerita.resx">
+      <DependentUpon>TambahBerita.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Component\AddNews.resx">
       <DependentUpon>AddNews.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="User Page\NewsList.resx">
       <DependentUpon>NewsList.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="User Page\YourNews.resx">
-      <DependentUpon>YourNews.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserDashboard.resx">
       <DependentUpon>UserDashboard.cs</DependentUpon>

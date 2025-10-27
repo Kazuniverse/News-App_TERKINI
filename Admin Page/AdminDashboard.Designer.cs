@@ -1,6 +1,6 @@
-﻿namespace News_App
+﻿namespace News_App.Admin_Page
 {
-    partial class AddNews
+    partial class AdminDashboard
     {
         /// <summary> 
         /// Required designer variable.
@@ -28,16 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.SuspendLayout();
-            // 
-            // AddNews
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            components = new System.ComponentModel.Container();
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Name = "AddNews";
-            this.Size = new System.Drawing.Size(668, 424);
-            this.ResumeLayout(false);
-
         }
 
         #endregion

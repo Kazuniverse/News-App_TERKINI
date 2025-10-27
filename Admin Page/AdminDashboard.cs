@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace News_App
+namespace News_App.Admin_Page
 {
-    public partial class YourNews : UserControl
+    public partial class AdminDashboard : UserControl
     {
-        public YourNews()
+        public AdminDashboard()
         {
             InitializeComponent();
         }

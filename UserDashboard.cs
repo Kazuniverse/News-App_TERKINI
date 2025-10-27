@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace News_App
@@ -19,7 +12,9 @@ namespace News_App
 
         private void UserDashboard_Load(object sender, EventArgs e)
         {
-            panel1.Controls.Add(new NewsList());
+            NewsList news = new NewsList();
+            news.Dock = DockStyle.Fill;
+            panel1.Controls.Add(news);
         }
     }
 }

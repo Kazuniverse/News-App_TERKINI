@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace News_App
 {
-    public partial class AddNews : UserControl
+    public partial class TambahBerita : UserControl
     {
-        public AddNews()
+        public TambahBerita()
         {
             InitializeComponent();
         }
