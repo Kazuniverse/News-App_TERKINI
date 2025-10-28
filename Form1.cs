@@ -1,15 +1,17 @@
-﻿using System.Windows.Forms;
+﻿using News_App.Admin_Page;
+using System.Windows.Forms;
 
 namespace News_App
 {
     public partial class Form1 : Form
     {
         UserDashboard user = new UserDashboard();
+        AdminDashboard admin = new AdminDashboard();
         public Form1()
         {
             InitializeComponent();
 
-            LoadPage(user);
+            LoadPage(admin);
         }
 
         void LoadPage(UserControl page)

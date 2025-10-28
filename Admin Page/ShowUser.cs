@@ -1,0 +1,35 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace News_App.Admin_Page
+{
+    public partial class ShowUser : UserControl
+    {
+        public ShowUser()
+        {
+            InitializeComponent();
+        }
+
+        private void ShowUser_Load(object sender, EventArgs e)
+        {
+            LoadData();
+        }
+
+        void LoadData()
+        {
+            using (NewsEntities db = new NewsEntities())
+            {
+                var user = db.Accounts.ToList();
+
+                dataGridView1.DataSource = user;
+            }
+        }
+    }
+}

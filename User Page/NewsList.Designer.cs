@@ -30,11 +30,13 @@
         {
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // flowLayoutPanel1
@@ -43,10 +45,11 @@
             this.flowLayoutPanel1.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(135, 5);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(528, 414);
             this.flowLayoutPanel1.TabIndex = 1;
+            this.flowLayoutPanel1.Visible = false;
             this.flowLayoutPanel1.WrapContents = false;
             this.flowLayoutPanel1.Layout += new System.Windows.Forms.LayoutEventHandler(this.FlowLayoutPanel1_Layout);
             // 
@@ -69,27 +72,16 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(130, 414);
             this.tableLayoutPanel1.TabIndex = 2;
             // 
-            // button1
+            // button4
             // 
-            this.button1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button1.Location = new System.Drawing.Point(0, 0);
-            this.button1.Margin = new System.Windows.Forms.Padding(0, 0, 6, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(124, 122);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button2.Location = new System.Drawing.Point(0, 128);
-            this.button2.Margin = new System.Windows.Forms.Padding(0, 3, 6, 3);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(124, 119);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
+            this.button4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button4.Location = new System.Drawing.Point(0, 378);
+            this.button4.Margin = new System.Windows.Forms.Padding(0, 3, 6, 0);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(124, 36);
+            this.button4.TabIndex = 3;
+            this.button4.Text = "button4";
+            this.button4.UseVisualStyleBackColor = true;
             // 
             // button3
             // 
@@ -102,16 +94,36 @@
             this.button3.Text = "button3";
             this.button3.UseVisualStyleBackColor = true;
             // 
-            // button4
+            // button2
             // 
-            this.button4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button4.Location = new System.Drawing.Point(0, 378);
-            this.button4.Margin = new System.Windows.Forms.Padding(0, 3, 6, 0);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(124, 36);
-            this.button4.TabIndex = 3;
-            this.button4.Text = "button4";
-            this.button4.UseVisualStyleBackColor = true;
+            this.button2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button2.Location = new System.Drawing.Point(0, 128);
+            this.button2.Margin = new System.Windows.Forms.Padding(0, 3, 6, 3);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(124, 119);
+            this.button2.TabIndex = 1;
+            this.button2.Text = "button2";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            this.button1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button1.Location = new System.Drawing.Point(0, 0);
+            this.button1.Margin = new System.Windows.Forms.Padding(0, 0, 6, 3);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(124, 122);
+            this.button1.TabIndex = 0;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.flowLayoutPanel1);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(135, 5);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(528, 414);
+            this.panel1.TabIndex = 0;
             // 
             // NewsList
             // 
@@ -119,13 +131,14 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.Controls.Add(this.flowLayoutPanel1);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "NewsList";
             this.Padding = new System.Windows.Forms.Padding(5);
             this.Size = new System.Drawing.Size(668, 424);
             this.Load += new System.EventHandler(this.NewsList_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -138,5 +151,6 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Panel panel1;
     }
 }

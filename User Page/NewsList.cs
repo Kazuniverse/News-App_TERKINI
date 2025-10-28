@@ -12,7 +12,7 @@ namespace News_App
             InitializeComponent();
         }
 
-        void LoadPage()
+        void LoadContent()
         {
             using (NewsEntities db = new NewsEntities())
             {
@@ -37,6 +37,7 @@ namespace News_App
 
         private void NewsList_Load(object sender, EventArgs e)
         {
+            flowLayoutPanel1.Visible = true;
             NewsContent news = new NewsContent();
             flowLayoutPanel1.Controls.Add(news);
         }
