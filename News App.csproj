@@ -79,27 +79,14 @@
     <Compile Include="Admin Page\ShowUser.Designer.cs">
       <DependentUpon>ShowUser.cs</DependentUpon>
     </Compile>
+    <Compile Include="Content.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="LoginPage.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="LoginPage.Designer.cs">
       <DependentUpon>LoginPage.cs</DependentUpon>
-    </Compile>
-    <Compile Include="RegisterPage.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="RegisterPage.Designer.cs">
-      <DependentUpon>RegisterPage.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Session.cs" />
-    <Compile Include="Component\NewsCard.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Component\NewsCard.Designer.cs">
-      <DependentUpon>NewsCard.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Content.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Model1.Context.cs">
       <AutoGen>True</AutoGen>
@@ -115,6 +102,22 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Model1.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="RegisterPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RegisterPage.Designer.cs">
+      <DependentUpon>RegisterPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Role.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Session.cs" />
+    <Compile Include="Component\NewsCard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Component\NewsCard.Designer.cs">
+      <DependentUpon>NewsCard.cs</DependentUpon>
     </Compile>
     <Compile Include="Component\NewsContent.cs">
       <SubType>UserControl</SubType>

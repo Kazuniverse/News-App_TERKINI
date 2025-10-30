@@ -12,24 +12,18 @@ namespace News_App
     using System;
     using System.Collections.Generic;
     
-    public partial class Account
+    public partial class Role
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Account()
+        public Role()
         {
-            this.Contents = new HashSet<Content>();
+            this.Accounts = new HashSet<Account>();
         }
     
-        public int UserID { get; set; }
-        public string Username { get; set; }
-        public string FullName { get; set; }
-        public string Email { get; set; }
-        public string PASSWORD { get; set; }
-        public Nullable<int> RoleID { get; set; }
-        public Nullable<System.DateTime> CreatedAt { get; set; }
+        public int RoleID { get; set; }
+        public string Name { get; set; }
     
-        public virtual Role Role { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Content> Contents { get; set; }
+        public virtual ICollection<Account> Accounts { get; set; }
     }
 }

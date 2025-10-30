@@ -15,9 +15,9 @@ namespace News_App
     public partial class Content
     {
         public int ContentID { get; set; }
+        public Nullable<int> AuthorID { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
-        public int AuthorID { get; set; }
         public Nullable<System.DateTime> CreatedAt { get; set; }
     
         public virtual Account Account { get; set; }

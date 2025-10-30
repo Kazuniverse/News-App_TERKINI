@@ -26,10 +26,22 @@ namespace News_App.Admin_Page
         {
             using (NewsEntities db = new NewsEntities())
             {
-                var user = db.Accounts.ToList();
+                var user = db.Accounts
+                    .Select(u => new
+                    {
+                        u.UserID,
+                        u.Username,
+                        u.FullName,
+                        u.Email,
+                        Role = u.Role.Name,
+                        u.CreatedAt
+                    })
+                    .ToList();
 
                 dataGridView1.DataSource = user;
             }
+
+
         }
     }
 }
