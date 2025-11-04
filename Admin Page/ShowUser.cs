@@ -39,9 +39,19 @@ namespace News_App.Admin_Page
                     .ToList();
 
                 dataGridView1.DataSource = user;
+                textBox1.Controls.Clear();
+                comboBox1.SelectedIndex = -1;
+                dateTimePicker1.CustomFormat = " ";
+                dateTimePicker1.Format = DateTimePickerFormat.Custom;
             }
+        }
 
-
+        void Filter()
+        {
+            using (NewsEntities db = new NewsEntities())
+            {
+                var 
+            }
         }
     }
 }
