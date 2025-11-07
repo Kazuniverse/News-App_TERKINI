@@ -38,8 +38,19 @@ namespace News_App.Admin_Page
                     })
                     .ToList();
 
+                var role = db.Roles
+                    .Select(u => new
+                    {
+                        u.RoleID,
+                        u.Name
+                    })
+                    .ToList();
+
                 dataGridView1.DataSource = user;
-                textBox1.Controls.Clear();
+                textBox1.Clear();
+                comboBox1.DataSource = role;
+                comboBox1.DisplayMember = "Name";
+                comboBox1.ValueMember = "RoleID";
                 comboBox1.SelectedIndex = -1;
                 dateTimePicker1.CustomFormat = " ";
                 dateTimePicker1.Format = DateTimePickerFormat.Custom;
@@ -50,8 +61,35 @@ namespace News_App.Admin_Page
         {
             using (NewsEntities db = new NewsEntities())
             {
-                var 
+                string text = textBox1.Text;
+                int role = (int)(comboBox1.SelectedValue ?? -1);
+
+                var fil = db.Accounts
+                    .Where(u => (string.IsNullOrEmpty(text) || u.FullName.Contains(text) || u.Username.Contains(text) || u.Email.Contains(text)) &&
+                    (role == -1 || u.Role.RoleID == role) && (dateTimePicker1.Format != DateTimePickerFormat.Custom ? u.CreatedAt == dateTimePicker1.Value : true))
+                    .Select(u => new
+                    {
+                        u.UserID,
+                        u.Username,
+                        u.FullName,
+                        u.Email,
+                        u.Role,
+                        u.CreatedAt
+                    })
+                    .ToList();
+
+                dataGridView1.DataSource = fil;
             }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Filter();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            LoadData();
         }
     }
 }
