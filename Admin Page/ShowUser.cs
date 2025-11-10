@@ -52,8 +52,8 @@ namespace News_App.Admin_Page
                 comboBox1.DisplayMember = "Name";
                 comboBox1.ValueMember = "RoleID";
                 comboBox1.SelectedIndex = -1;
-                dateTimePicker1.CustomFormat = " ";
                 dateTimePicker1.Format = DateTimePickerFormat.Custom;
+                dateTimePicker1.CustomFormat = " ";
             }
         }
 
@@ -62,11 +62,13 @@ namespace News_App.Admin_Page
             using (NewsEntities db = new NewsEntities())
             {
                 string text = textBox1.Text;
+                DateTime tgl = dateTimePicker1.Value.Date;
                 int role = (int)(comboBox1.SelectedValue ?? -1);
+                var nextDay = date.AddDays(1);
 
                 var fil = db.Accounts
                     .Where(u => (string.IsNullOrEmpty(text) || u.FullName.Contains(text) || u.Username.Contains(text) || u.Email.Contains(text)) &&
-                    (role == -1 || u.Role.RoleID == role) && (dateTimePicker1.Format != DateTimePickerFormat.Custom ? u.CreatedAt == dateTimePicker1.Value : true))
+                                (role == -1 || u.Role.RoleID == role) && (dateTimePicker1.Format != DateTimePickerFormat.Custom ? (u.CreatedAt >= date && u.CreatedAt < nextDay) : true))
                     .Select(u => new
                     {
                         u.UserID,
@@ -90,6 +92,11 @@ namespace News_App.Admin_Page
         private void button1_Click(object sender, EventArgs e)
         {
             LoadData();
+        }
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+            dateTimePicker1.Format = DateTimePickerFormat.Long;
         }
     }
 }

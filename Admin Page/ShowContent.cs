@@ -48,12 +48,13 @@ namespace News_App.Admin_Page
         {
             using (NewsEntities db = new NewsEntities())
             {
-                string text = textBox1.Text;
-                DateTime date = dateTimePicker1.Value;
+                string text = textBox1.Text.ToLower();
+                DateTime date = dateTimePicker1.Value.Date;
+                var nextDay = date.AddDays(1);
 
                 var content = db.Contents
-                    .Where(u => (string.IsNullOrEmpty(text) || u.Title.ToLower().Contains(text) || u.Description.ToLower().Contains(text) || u.Account.Username.ToLower().Contains(text)) &&
-                    (dateTimePicker1.Format != DateTimePickerFormat.Custom ? u.CreatedAt == date : true))
+                    .Where(u => (dateTimePicker1.Format != DateTimePickerFormat.Custom ? (u.CreatedAt >= date && u.CreatedAt < nextDay) : true) &&
+                                (string.IsNullOrEmpty(text) || u.Title.ToLower().Contains(text) || u.Description.ToLower().Contains(text) || u.Account.Username.ToLower().Contains(text)))
                     .Select(u => new
                     {
                         u.ContentID,
@@ -98,6 +99,11 @@ namespace News_App.Admin_Page
         {
             AddNews news = new AddNews();
             news.Show();
+        }
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+            dateTimePicker1.Format = DateTimePickerFormat.Long;
         }
     }
 }
