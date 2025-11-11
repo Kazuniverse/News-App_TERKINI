@@ -64,11 +64,11 @@ namespace News_App.Admin_Page
                 string text = textBox1.Text;
                 DateTime tgl = dateTimePicker1.Value.Date;
                 int role = (int)(comboBox1.SelectedValue ?? -1);
-                var nextDay = date.AddDays(1);
+                var nextDay = tgl.AddDays(1);
 
                 var fil = db.Accounts
                     .Where(u => (string.IsNullOrEmpty(text) || u.FullName.Contains(text) || u.Username.Contains(text) || u.Email.Contains(text)) &&
-                                (role == -1 || u.Role.RoleID == role) && (dateTimePicker1.Format != DateTimePickerFormat.Custom ? (u.CreatedAt >= date && u.CreatedAt < nextDay) : true))
+                                (role == -1 || u.Role.RoleID == role) && (dateTimePicker1.Format != DateTimePickerFormat.Custom ? (u.CreatedAt >= tgl && u.CreatedAt < nextDay) : true))
                     .Select(u => new
                     {
                         u.UserID,
@@ -97,6 +97,31 @@ namespace News_App.Admin_Page
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
             dateTimePicker1.Format = DateTimePickerFormat.Long;
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            var user = (string)dataGridView1.CurrentRow.Cells["usernameDataGridViewTextBoxColumn"].Value;
+            int id = Convert.ToInt32(dataGridView1.CurrentRow.Cells["userIDDataGridViewTextBoxColumn"].Value);
+
+            using (NewsEntities db = new NewsEntities())
+            {
+                var slct = db.Accounts.FirstOrDefault(u => u.UserID == id);
+
+                DialogResult result = MessageBox.Show($"Are You Sure To Delete User \"{user}\"?", "Delete Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (result == DialogResult.Yes)
+                {
+                    db.Accounts.Remove(slct);
+                    db.SaveChanges();
+                    MessageBox.Show("Delete Successfully!");
+                }
+                else
+                {
+                    MessageBox.Show("Delete Cancelled!");
+                }
+                LoadData();
+            }
         }
     }
 }

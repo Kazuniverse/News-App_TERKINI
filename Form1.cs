@@ -7,14 +7,16 @@ namespace News_App
     {
         UserDashboard user = new UserDashboard();
         AdminDashboard admin = new AdminDashboard();
+        LoginPage login = new LoginPage();
+        RegisterPage register = new RegisterPage();
         public Form1()
         {
             InitializeComponent();
 
-            LoadPage(admin);
+            LoadPage(login);
         }
 
-        void LoadPage(UserControl page)
+        public void LoadPage(UserControl page)
         {
             this.Controls.Clear();
             page.Dock = DockStyle.Fill;
